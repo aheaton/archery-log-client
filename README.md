@@ -1,5 +1,5 @@
 Archery Log Full-Stack Project
 
-Here is the link to the deployed page: https://aheaton.github.io/archery-log-fullstack/
+Here is the link to the deployed page: https://github.com/aheaton/archery-log-client
 
 Put content here...
