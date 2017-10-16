@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Archery Log</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,16 +12,89 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <header>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="#change-password">Change Password</a></li>
+              <li><a href="#Sign Out">Sign Out</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </header>
 
-      Testing
+    <main>
+      <div class="container-fluid">
+        <div class="text-center">
+          <h1>Archery Log</h1>
+          <p class="lead">Success or error messages here.
+          </p>
+        </div>
+        <div class="container">
+        <form class="signInForm" role="form">
+          <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-3 col-md-offset-4 col-md-offset-4">
+              <div class="form-group">
+                <label for="inputEmail" class="control-label">Email Address:</label>
+                <div>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword" class="control-label">Password:</label>
+                <div>
+                  <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+                </div>
+            </div>
+            <div>
+              <button type="button" class="btn btn-primary btn-lg">Sign In</button>
+            </div>
+            <div>
+          </form>
+        </div>
+        <br/>
+        <div class="signUpLink"><a href="#">Don't have an account? Sign up now!</a>
+        </div>
+      </div>
+      <div class="container">
+      <form class="signUpForm" role="form">
+        <div class="row">
+          <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-3 col-md-offset-4 col-md-offset-4">
+            <div class="form-group">
+              <label for="inputEmail" class="control-label">Email Address:</label>
+              <div>
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword" class="control-label">Password:</label>
+              <div>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword" class="control-label">Confirm Password:</label>
+            <div>
+              <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password" required>
+            </div>
+        </div>
+          <div>
+            <button type="button" class="btn btn-primary btn-lg">Sign Up</button>
+          </div>
+          <div>
+        </form>
+      </div>
+    </div>
+    </main>
     </body>
 </html>
