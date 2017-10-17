@@ -1,101 +1,111 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Archery Log</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+	<title>Archery Log</title>
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-
-      <header>
-      <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          </div>
-          <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="#change-password">Change Password</a></li>
-              <li><a href="#Sign Out">Sign Out</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <div class="container-fluid">
-        <div class="text-center">
-          <h1>Archery Log</h1>
-          <p class="lead">Success or error messages here.
-          </p>
-        </div>
-        <div class="container">
-        <form class="signInForm" role="form">
-          <div class="row">
-            <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-3 col-md-offset-4 col-md-offset-4">
-              <div class="form-group">
-                <label for="inputEmail" class="control-label">Email Address:</label>
-                <div>
-                  <input type="email" name="credentials[email]" class="form-control" id="inputEmail" placeholder="Email Address" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword" class="control-label">Password:</label>
-                <div>
-                  <input type="password" name="credentials[password]" class="form-control" id="inputPassword" placeholder="Password" required>
-                </div>
-            </div>
-            <div>
-              <button type="button" class="btn btn-primary btn-lg">Sign In</button>
-            </div>
-            <div>
-          </form>
-        </div>
-        <br/>
-        <div class="signUpLink"><a href="#">Don't have an account? Sign up now!</a>
-        </div>
-      </div>
-      <div class="container">
-      <form class="signUpForm" role="form">
-        <div class="row">
-          <div class="col-sm-6 col-md-4 col-lg-4 col-md-offset-3 col-md-offset-4 col-md-offset-4">
-            <div class="form-group">
-              <br/>
-              <label for="inputEmail" class="control-label">Email Address:</label>
-              <div>
-                <input type="email" name="credentials[email]" class="form-control" id="inputEmail" placeholder="Email Address" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputPassword" class="control-label">Password:</label>
-              <div>
-                <input type="password" name="credentials[password]" class="form-control" id="inputPassword" placeholder="Password" required>
-              </div>
-          </div>
-          <div class="form-group">
-            <label for="inputPassword" class="control-label">Confirm Password:</label>
-            <div>
-              <input type="password" name="credentials[password_confirmation]" class="form-control" id="inputPassword" placeholder="Confirm Password" required>
-            </div>
-        </div>
-          <div>
-            <button type="button" class="btn btn-primary btn-lg">Sign Up</button>
-          </div>
-          <div>
-        </form>
-      </div>
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+<body>
+<header>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
-    </main>
-    </body>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li id="changePasswordButton"><a href="#">Change Password</a></li>
+        <li id="sign-out"><a href="#">Sign Out</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+<!-- <input id="signOutButton" class="btn btn-primary" type="button" value="Sign Out">
+<input id="changePasswordButton" class="btn btn-primary" type="button" value="Change Password"> -->
+</header>
+<div id="signUpInModal"  data-backdrop="static" data-keyboard="false" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalLabel">Welcome to Archery Log</h3>
+        <h4>Sign In -OR- Sign Up</h4>
+      </div>
+      <div class="modal-body">
+      <form id="sign-in" class="inputFields">
+      <p id="signUpSuccessMessage" class="success">Congrats, you are now registered!</p>
+      <h5>Sign in</h5>
+      <p id="signInFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
+      <input type="text" name="credentials[email]" placeholder="Email Address" required>
+      <br />
+      <br />
+      <input type="password" name="credentials[password]" placeholder="Password" required>
+      <br />
+      <br />
+      <button type="submit" name="submit" class="btn btn-primary">Sign In</button>
+      </form>
+      <br />
+      <form id="sign-up" class="inputFields">
+      <h5>Don't have an account yet? Sign up!</h5>
+      <p id="signUpFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
+      <input type="text" name="credentials[email]" placeholder="Email Address" required>
+      <br />
+      <br />
+      <input type="password" name="credentials[password]" placeholder="Password" required>
+      <br />
+      <br />
+      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
+      <br />
+      <br />
+      <button type="submit" name="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+      </div>
+  </div>
+</div>
+</div>
+<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title" id="modalLabel">Change Password</h3>
+        <h5>You can change your password by using the form below.</h5>
+      </div>
+      <form id="change-password" class="inputFields">
+      <div class="modal-body">
+      <p id="changePassSuccessMessage" class="success">Changed password successfully. Please use the Close button to get back to your log.</p>
+      <p id="changePassFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
+      <input type="password" name="passwords[old]" placeholder="Old Password" required>
+      <br />
+      <br />
+      <input type="password" name="passwords[new]" placeholder="New Password" required>
+      <br />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+      </div>
+      </form>
+  </div>
+</div>
+</div>
+<div class="container">
+<main>
+<h1 class="title">Archery Log</h1>
+<br />
+<div id="startGameFailMessage" class="failure">Sorry, something went wrong. Please try again.</div>
+<div id="signOutFailMessage" class="failure">Sorry, something went wrong. Please try again.</div>
+</main>
+</div>
+</body>
 </html>

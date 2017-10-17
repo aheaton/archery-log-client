@@ -14,3 +14,51 @@ button {
 .signUpLink {
   font-weight: bold;
 }
+
+.navbar {
+  display: none;
+}
+
+.failure {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
+#signInFailMessage {
+  display: none;
+}
+
+#signUpSuccessMessage {
+  display: none;
+}
+
+#signUpFailMessage {
+  display: none;
+}
+
+#signOutFailMessage {
+  display: none;
+}
+
+#changePassSuccessMessage {
+  display: none;
+}
+
+#changePassFailMessage {
+  display: none;
+}
+
+#startGameFailMessage {
+  display: none;
+}
+
+#updateGameFailMessage {
+  display: none;
+}
+
+#getGamesFailMessage {
+  display: none;
+}
