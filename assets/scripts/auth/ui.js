@@ -15,6 +15,7 @@ const signUpFailure = function () { // this error also comes back from the ajax 
 const signInSuccess = function (data) {
   $('#signUpInModal').modal('hide')
   $('.navbar').show()
+  $('.title').show()
   // $('#signOutButton').show()
   // $('#changePasswordButton').show()
   store.user = data.user // this puts a user property in the store object located in the store file; doing this on signInSucess because comes back from the response here
@@ -31,8 +32,9 @@ const signOutSuccess = function () {
   $('#signUpSuccessMessage').hide()
   $('#signUpFailMessage').hide()
   $('#signOutFailMessage').hide()
-  $('.navbar').hide()
   $('#signInFailMessage').hide()
+  $('.navbar').hide()
+  $('.title').hide()
   store.user = null
 }
 
