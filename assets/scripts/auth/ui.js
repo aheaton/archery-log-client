@@ -16,6 +16,7 @@ const signInSuccess = function (data) {
   $('#signUpInModal').modal('hide')
   $('.navbar').show()
   $('.title').show()
+  $('#newRoundButton').show()
   // $('#signOutButton').show()
   // $('#changePasswordButton').show()
   store.user = data.user // this puts a user property in the store object located in the store file; doing this on signInSucess because comes back from the response here

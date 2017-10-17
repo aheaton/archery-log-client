@@ -48,6 +48,9 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('#newRoundButton').on('click', function () {
+    $('#addNewRoundModal').modal('show')
+  })
 }
 
 module.exports = {
