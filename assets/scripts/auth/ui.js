@@ -6,6 +6,7 @@ const signUpSuccess = function (data) { // this is the object that is created fr
   $('#sign-up').hide()
   $('#signInFailMessage').hide()
   $('#signUpSuccessMessage').show()
+  $('.signUpLink').hide()
 }
 
 const signUpFailure = function () { // this error also comes back from the ajax request
@@ -36,6 +37,8 @@ const signOutSuccess = function () {
   $('#signInFailMessage').hide()
   $('.navbar').hide()
   $('.title').hide()
+  $('.signUpLink').show()
+  $('#sign-up').hide()
   store.user = null
 }
 

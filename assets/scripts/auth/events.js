@@ -51,6 +51,9 @@ const addHandlers = () => {
   $('#newRoundButton').on('click', function () {
     $('#addNewRoundModal').modal('show')
   })
+  $('.signUpLink').on('click', function () {
+    $('#sign-up').toggle()
+  })
 }
 
 module.exports = {

@@ -93,3 +93,7 @@ button {
 #pageContent {
   text-align: center;
 }
+
+#sign-up {
+  display: none;
+}
