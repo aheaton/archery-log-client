@@ -46,6 +46,7 @@ const signOutFailure = function () {
 const changePasswordSuccess = function () {
   $('#changePassFailMessage').hide()
   $('#changePassSuccessMessage').show()
+  $('#change-password').trigger('reset')
 }
 
 const changePasswordFailure = function () {

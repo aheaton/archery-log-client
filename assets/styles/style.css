@@ -93,3 +93,7 @@ button {
 #pageContent {
   text-align: center;
 }
+
+@media screen and (max-width: 600px){
+  #signUpInModal .modal-dialog  {width:90%;}
+}
