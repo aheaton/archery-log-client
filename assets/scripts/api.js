@@ -1,5 +1,5 @@
-const config = require('../config')
-const store = require('../store')
+const config = require('./config')
+const store = require('./store')
 
 const signUp = function (data) { // this takes in the data that is returned from the event object and formatted by the getFormFields function in the events file
   return $.ajax({
@@ -38,31 +38,42 @@ const changePassword = function (data) {
   })
 }
 
-const create = function () {
+const create = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/games',
+    url: config.apiOrigin + '/rounds',
     method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const update = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/rounds/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const index = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/rounds',
+    method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
 }
 
-const update = function (game) {
+const destroy = function () {
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.game.id,
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: game
-  })
-}
-
-const index = function () {
-  return $.ajax({
-    url: config.apiOrigin + '/games',
-    method: 'GET',
+    url: config.apiOrigin + '/rounds',
+    method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -76,5 +87,6 @@ module.exports = {
   changePassword,
   create,
   update,
-  index
+  index,
+  destroy
 }

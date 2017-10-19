@@ -8,10 +8,11 @@ $(() => {
 })
 
 const authEvents = require('./auth/events.js')
+const roundEvents = require('./rounds/events.js')
 // const roundEvents = require('./rounds/events.js')
 
 // On document ready
 $(() => {
   authEvents.addHandlers()
-  // roundEvents.addHandlers()
+  roundEvents.addHandlers()
 })

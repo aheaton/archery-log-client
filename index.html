@@ -125,25 +125,25 @@
         <form id="add-round" class="inputFields">
           <div class="modal-body">
             <p id="addNewRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
-            <input type="text" placeholder="Date" required>
+            <input type="text" name=round[date] placeholder="Date" required>
             <br />
             <br />
-            <input type="text" placeholder="Range Name" required>
+            <input type="text" name=round[range_name] placeholder="Range Name" required>
             <br />
             <br />
-            <input type="text" placeholder="Range Type" required>
+            <input type="text" name=round[range_type] placeholder="Range Type" required>
             <br />
             <br />
-            <input type="text" placeholder="Bow Class" required>
+            <input type="text" name=round[bow_class] placeholder="Bow Class" required>
             <br />
             <br />
-            <input type="text" placeholder="Arrows Per End" required>
+            <input type="number" name=round[arrows_per_end] placeholder="Arrows Per End" required>
             <br />
             <br />
-            <input type="text" placeholder="Number of Ends" required>
+            <input type="number" name=round[number_of_ends] placeholder="Number of Ends" required>
             <br />
             <br />
-            <input type="text" placeholder="Total Score" required>
+            <input type="number" name=round[total_score] placeholder="Total Score" required>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
