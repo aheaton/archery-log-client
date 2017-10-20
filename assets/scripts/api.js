@@ -70,9 +70,9 @@ const index = function () {
   })
 }
 
-const destroy = function () {
+const destroy = function (round) {
   return $.ajax({
-    url: config.apiOrigin + '/rounds',
+    url: config.apiOrigin + '/rounds/' + round,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token

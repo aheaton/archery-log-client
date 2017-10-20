@@ -2,6 +2,7 @@
 
 const store = require('../store')
 const showRoundsTemplate = require('../templates/rounds.handlebars')
+const api = require('../api.js')
 
 const signUpSuccess = function (data) { // this is the object that is created from the ajax request
   $('#sign-up').hide()
@@ -64,6 +65,24 @@ const getRoundsSuccess = function (data) {
   $('.editRoundButton').on('click', function () { // need to put this click handler here because the button needs to be loaded into the DOM before I can put a click handler on it (i.e. cannot put this event listener into memory on page load like the others)
     $('#editRoundModal').modal('show')
   })
+  $('.deleteRoundButton').on('click', function (event) {
+    event.preventDefault()
+    $(this).parent().hide()
+    console.log('this is the round I want to delete', $(this).data('id'))
+    const round = $(this).data('id')
+    api.destroy(round)
+      .then(onDeleteSuccess)
+      .catch(onDeleteFailure)
+  })
+}
+
+const onDeleteSuccess = function () {
+  console.log('Delete success!')
+}
+
+const onDeleteFailure = function (response) {
+  console.error(response)
+  $('#editRoundFailMessage').show()
 }
 
 const getRoundsFailure = function (response) {
