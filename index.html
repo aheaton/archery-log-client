@@ -159,6 +159,48 @@
         </div>
       </div>
       </div>
+
+      <div class="modal fade" id="editRoundModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h3 class="modal-title" id="modalLabel">Edit Round</h3>
+              <h5>Add your best round from your session today.</h5>
+            </div>
+              <form id="edit-round" class="inputFields">
+                <div class="modal-body">
+                  <p id="editRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
+                  <input type="text" name=round[date] placeholder="Date" required>
+                  <br />
+                  <br />
+                  <input type="text" name=round[range_name] placeholder="Range Name" required>
+                  <br />
+                  <br />
+                  <input type="text" name=round[range_type] placeholder="Range Type" required>
+                  <br />
+                  <br />
+                  <input type="text" name=round[bow_class] placeholder="Bow Class" required>
+                  <br />
+                  <br />
+                  <input type="number" name=round[arrows_per_end] placeholder="Arrows Per End" required>
+                  <br />
+                  <br />
+                  <input type="number" name=round[number_of_ends] placeholder="Number of Ends" required>
+                  <br />
+                  <br />
+                  <input type="number" name=round[total_score] placeholder="Total Score" required>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Add Round</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            </div>
 </main>
 </div>
 </body>
