@@ -49,9 +49,9 @@ const create = function (data) {
   })
 }
 
-const update = function (data) {
+const update = function (round, data) {
   return $.ajax({
-    url: config.apiOrigin + '/rounds/' + store.game.id,
+    url: config.apiOrigin + '/rounds/' + round, // the round id is passed in here
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -63,6 +63,16 @@ const update = function (data) {
 const index = function () {
   return $.ajax({
     url: config.apiOrigin + '/rounds',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const show = function (round) {
+  return $.ajax({
+    url: config.apiOrigin + '/rounds/' + round,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -88,5 +98,6 @@ module.exports = {
   create,
   update,
   index,
+  show,
   destroy
 }

@@ -104,7 +104,15 @@ button {
   display: none;
 }
 
-#editRoundFailMessage {
+#updateRoundFailMessage {
+  display: none;
+}
+
+#deleteRoundFailMessage {
+  display: none;
+}
+
+#showRoundFailMessage {
   display: none;
 }
 

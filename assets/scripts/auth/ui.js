@@ -3,6 +3,7 @@
 const store = require('../store')
 const showRoundsTemplate = require('../templates/rounds.handlebars')
 const api = require('../api.js')
+const getFormFields = require('../../../lib/get-form-fields')
 
 const signUpSuccess = function (data) { // this is the object that is created from the ajax request
   $('#sign-up').hide()
@@ -58,12 +59,31 @@ const changePasswordFailure = function () {
   $('#changePassSuccessMessage').hide()
 }
 
+let round = ''
 const getRoundsSuccess = function (data) {
+  $('#getRoundsFailMessage').hide()
   console.log('Get Rounds Success!')
   const showRoundsHtml = showRoundsTemplate({ rounds: data.rounds }) // this is putting the data object that contains all the rounds into a rounds object it can use when the method defined in HandleBars is invoked
   $('.all-rounds').append(showRoundsHtml)
   $('.editRoundButton').on('click', function () { // need to put this click handler here because the button needs to be loaded into the DOM before I can put a click handler on it (i.e. cannot put this event listener into memory on page load like the others)
     $('#editRoundModal').modal('show')
+  })
+  $('.editRoundButton').on('click', function (event) { // this shows the information in the edit modal of the round clicked
+    event.preventDefault()
+    console.log('this is the round I want to edit', $(this).data('id')) // we use data id because it can be used by jQuery
+    round = $(this).data('id')
+    api.show(round)
+      .then(onShowRoundSuccess)
+      .catch(onShowRoundFailure)
+  })
+  $('#edit-round').on('submit', function (event) { // this allows you to edit the information in the modal and submit it
+    const data = getFormFields(this)
+    console.log('this is the data I am sending to the update method', data)
+    console.log('this is the round I am submitting for edit', round)
+    event.preventDefault()
+    api.update(round, data)
+      .then(onUpdateRoundSuccess)
+      .catch(onUpdateRoundFailure)
   })
   $('.deleteRoundButton').on('click', function (event) {
     event.preventDefault()
@@ -76,18 +96,46 @@ const getRoundsSuccess = function (data) {
   })
 }
 
+const getRoundsFailure = function (response) {
+  console.error(response)
+  $('#getRoundsFailMessage').show()
+}
+
 const onDeleteSuccess = function () {
   console.log('Delete success!')
+  $('#deleteRoundFailMessage').hide()
 }
 
 const onDeleteFailure = function (response) {
   console.error(response)
-  $('#editRoundFailMessage').show()
+  $('#deleteRoundFailMessage').show()
 }
 
-const getRoundsFailure = function (response) {
+const onShowRoundSuccess = function (round) {
+  $('#showRoundFailMessage').hide()
+  console.log('Show success!')
+  $('#roundDate').val(round.date)
+  $('#roundRangeName').val(round.range_name)
+  $('#roundRangeType').val(round.range_type)
+  $('#roundBowClass').val(round.bow_class)
+  $('#roundArrowsPerEnd').val(round.arrows_per_end)
+  $('#roundNumberOfEnds').val(round.number_of_ends)
+  $('#roundTotalScore').val(round.total_score)
+}
+
+const onShowRoundFailure = function (response) {
   console.error(response)
-  $('#getRoundsFailMessage').show()
+  $('#showRoundFailMessage').show()
+}
+
+const onUpdateRoundSuccess = function () {
+  console.log('Edit success!')
+  $('#updateRoundFailMessage').hide()
+}
+
+const onUpdateRoundFailure = function (response) {
+  console.error(response)
+  $('#updateRoundFailMessage').show()
 }
 
 module.exports = {

@@ -108,6 +108,8 @@
 <h1 class="title">Archery Log</h1>
 <br />
 <div id="signOutFailMessage" class="failure">Sorry, something went wrong. Please try again.</div>
+<div id="deleteRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</div>
+<div id="showRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</div>
 <br />
 <button type="button" id="newRoundButton" class="btn btn-primary">Log new round</button>
 <br />
@@ -172,26 +174,26 @@
             </div>
               <form id="edit-round" class="inputFields">
                 <div class="modal-body">
-                  <p id="editRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
-                  <input type="text" name=round[date] placeholder="Date" required>
+                  <p id="updateRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
+                  <input id="roundDate" type="text" name=round[date] placeholder="Date" required>
                   <br />
                   <br />
-                  <input type="text" name=round[range_name] placeholder="Range Name" required>
+                  <input id="roundRangeName" type="text" name=round[range_name] placeholder="Range Name" required>
                   <br />
                   <br />
-                  <input type="text" name=round[range_type] placeholder="Range Type" required>
+                  <input id="roundRangeType" type="text" name=round[range_type] placeholder="Range Type" required>
                   <br />
                   <br />
-                  <input type="text" name=round[bow_class] placeholder="Bow Class" required>
+                  <input id="roundBowClass" type="text" name=round[bow_class] placeholder="Bow Class" required>
                   <br />
                   <br />
-                  <input type="number" name=round[arrows_per_end] placeholder="Arrows Per End" required>
+                  <input id="roundArrowsPerRound" type="number" name=round[arrows_per_end] placeholder="Arrows Per End" required>
                   <br />
                   <br />
-                  <input type="number" name=round[number_of_ends] placeholder="Number of Ends" required>
+                  <input id="roundNumberOfEnds" type="number" name=round[number_of_ends] placeholder="Number of Ends" required>
                   <br />
                   <br />
-                  <input type="number" name=round[total_score] placeholder="Total Score" required>
+                  <input id="roundTotalScoree" type="number" name=round[total_score] placeholder="Total Score" required>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
