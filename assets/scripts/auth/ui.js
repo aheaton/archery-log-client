@@ -61,6 +61,9 @@ const getRoundsSuccess = function (data) {
   console.log('Get Rounds Success!')
   const showRoundsHtml = showRoundsTemplate({ rounds: data.rounds }) // this is putting the data object that contains all the rounds into a rounds object it can use when the method defined in HandleBars is invoked
   $('.all-rounds').append(showRoundsHtml)
+  $('.editRoundButton').on('click', function () { // need to put this click handler here because the button needs to be loaded into the DOM before I can put a click handler on it (i.e. cannot put this event listener into memory on page load like the others)
+    $('#editRoundModal').modal('show')
+  })
 }
 
 const getRoundsFailure = function (response) {

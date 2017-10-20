@@ -104,6 +104,10 @@ button {
   display: none;
 }
 
+#editRoundFailMessage {
+  display: none;
+}
+
 .rounds-list {
   color: yellow;
 }
