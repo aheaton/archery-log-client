@@ -112,15 +112,16 @@ const onDeleteFailure = function (response) {
 }
 
 const onShowRoundSuccess = function (round) {
+  console.log('this is the round data I want to show', round)
   $('#showRoundFailMessage').hide()
   console.log('Show success!')
-  $('#roundDate').val(round.date)
-  $('#roundRangeName').val(round.range_name)
-  $('#roundRangeType').val(round.range_type)
-  $('#roundBowClass').val(round.bow_class)
-  $('#roundArrowsPerEnd').val(round.arrows_per_end)
-  $('#roundNumberOfEnds').val(round.number_of_ends)
-  $('#roundTotalScore').val(round.total_score)
+  $('#roundDate').val(round.round.date) // need round here twice because my round object is nested within another round object based on how I am passing it in
+  $('#roundRangeName').val(round.round.range_name)
+  $('#roundRangeType').val(round.round.range_type)
+  $('#roundBowClass').val(round.round.bow_class)
+  $('#roundArrowsPerEnd').val(round.round.arrows_per_end)
+  $('#roundNumberOfEnds').val(round.round.number_of_ends)
+  $('#roundTotalScore').val(round.round.total_score)
 }
 
 const onShowRoundFailure = function (response) {
