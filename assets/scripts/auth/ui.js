@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const showRoundsTemplate = require('../templates/rounds.handlebars')
 
 const signUpSuccess = function (data) { // this is the object that is created from the ajax request
   $('#sign-up').hide()
@@ -14,11 +15,12 @@ const signUpFailure = function () { // this error also comes back from the ajax 
 }
 
 const signInSuccess = function (data) {
+  store.user = data.user // this puts a user property in the store object located in the store file; doing this on signInSucess because comes back from the response here
   $('#signUpInModal').modal('hide')
   $('.navbar').show()
   $('.title').show()
   $('#newRoundButton').show()
-  store.user = data.user // this puts a user property in the store object located in the store file; doing this on signInSucess because comes back from the response here
+  $('#getRoundsButton').show()
 }
 
 const signInFailure = function () {
@@ -55,6 +57,17 @@ const changePasswordFailure = function () {
   $('#changePassSuccessMessage').hide()
 }
 
+const getRoundsSuccess = function (data) {
+  console.log('Get Rounds Success!')
+  const showRoundsHtml = showRoundsTemplate({ rounds: data.rounds }) // this is putting the data object that contains all the rounds into a rounds object it can use when the method defined in HandleBars is invoked
+  $('.all-rounds').append(showRoundsHtml)
+}
+
+const getRoundsFailure = function (response) {
+  console.error(response)
+  $('#getRoundsFailMessage').show()
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -63,5 +76,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  getRoundsSuccess,
+  getRoundsFailure
 }

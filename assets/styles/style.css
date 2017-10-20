@@ -71,7 +71,7 @@ button {
   display: none;
 }
 
-#newRoundButton {
+#newRoundButton, #getRoundsButton {
   display: none;
   background: yellow;
   color: black;
@@ -98,4 +98,12 @@ button {
 
 #sign-up {
   display: none;
+}
+
+#getRoundsFailMessage {
+  display: none;
+}
+
+.rounds-list {
+  color: yellow;
 }

@@ -34,6 +34,14 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
+// after successful sign in, get the rounds associated to the user and display them
+const getRounds = function (event) {
+  event.preventDefault()
+  api.index()
+    .then(ui.getRoundsSuccess)
+    .catch(ui.getRoundsFailure)
+}
+
 const addHandlers = () => {
   $('#signUpInModal').modal('show') // this shows the sign up and sign in modal on page load
   $('#signUpInModal').on('hidden.bs.modal', (event) => {
@@ -46,6 +54,7 @@ const addHandlers = () => {
   })
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
+  $('#getRoundsButton').on('click', getRounds)
   $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#newRoundButton').on('click', function () {
@@ -61,5 +70,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  getRounds
 }
