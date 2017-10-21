@@ -133,16 +133,25 @@
         <form id="add-round" class="inputFields">
           <div class="modal-body">
             <p id="addNewRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
-            <input type="text" name=round[date] placeholder="Date" required>
+            <input type="date" name=round[date] placeholder="Date" required>
             <br />
             <br />
             <input type="text" name=round[range_name] placeholder="Range Name" required>
             <br />
             <br />
-            <input type="text" name=round[range_type] placeholder="Range Type" required>
+            <select name=round[range_type] required>
+              <option value="" selected disabled hidden>Select Range Type</option>
+              <option value="Indoor">Indoor</option>
+              <option value="Outdoor">Outdoor</option>
+            </select>
             <br />
             <br />
-            <input type="text" name=round[bow_class] placeholder="Bow Class" required>
+            <select name=round[bow_class] required>
+              <option value="" selected disabled hidden>Select Bow Class</option>
+              <option value="Recurve">Recurve</option>
+              <option value="Compound">Compound</option>
+              <option value="Traditional">Traditional</option>
+            </select>
             <br />
             <br />
             <input type="number" name=round[arrows_per_end] placeholder="Arrows Per End" required>
@@ -175,16 +184,25 @@
               <form id="edit-round" class="inputFields">
                 <div class="modal-body">
                   <p id="updateRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
-                  <input id="roundDate" type="text" name=round[date] placeholder="Date" required>
+                  <input id="roundDate" type="date" name=round[date] placeholder="Date" required>
                   <br />
                   <br />
                   <input id="roundRangeName" type="text" name=round[range_name] placeholder="Range Name" required>
                   <br />
                   <br />
-                  <input id="roundRangeType" type="text" name=round[range_type] placeholder="Range Type" required>
+                  <select id="roundRangeType" name=round[range_type] required>
+                    <option value="" selected disabled hidden>Select Range Type</option>
+                    <option value="Indoor">Indoor</option>
+                    <option value="Outdoor">Outdoor</option>
+                  </select>
                   <br />
                   <br />
-                  <input id="roundBowClass" type="text" name=round[bow_class] placeholder="Bow Class" required>
+                  <select id="roundBowClass" name=round[bow_class] required>
+                    <option value="" selected disabled hidden>Select Bow Class</option>
+                    <option value="Recurve">Recurve</option>
+                    <option value="Compound">Compound</option>
+                    <option value="Traditional">Traditional</option>
+                  </select>
                   <br />
                   <br />
                   <input id="roundArrowsPerEnd" type="number" name=round[arrows_per_end] placeholder="Arrows Per End" required>
