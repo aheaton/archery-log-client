@@ -64,7 +64,7 @@ const getRoundsSuccess = function (data) {
   $('#getRoundsFailMessage').hide()
   console.log('Get Rounds Success!')
   const showRoundsHtml = showRoundsTemplate({ rounds: data.rounds }) // this is putting the data object that contains all the rounds into a rounds object it can use when the method defined in HandleBars is invoked
-  $('.all-rounds').append(showRoundsHtml)
+  $('.all-rounds').html(showRoundsHtml)
   $('.editRoundButton').on('click', function () { // need to put this click handler here because the button needs to be loaded into the DOM before I can put a click handler on it (i.e. cannot put this event listener into memory on page load like the others)
     $('#editRoundModal').modal('show')
   })
@@ -87,11 +87,12 @@ const getRoundsSuccess = function (data) {
   })
   $('.deleteRoundButton').on('click', function (event) {
     event.preventDefault()
-    $(this).parent().hide()
     console.log('this is the round I want to delete', $(this).data('id'))
     const round = $(this).data('id')
+    console.log('this is what a deleted round looks like', $(this).parent())
     api.destroy(round)
       .then(onDeleteSuccess)
+      .then($(this).parent().hide()) // removes the round from the UI after deleting it successfully
       .catch(onDeleteFailure)
   })
 }
@@ -129,9 +130,14 @@ const onShowRoundFailure = function (response) {
   $('#showRoundFailMessage').show()
 }
 
-const onUpdateRoundSuccess = function () {
+const onUpdateRoundSuccess = function (event) {
   console.log('Edit success!')
   $('#updateRoundFailMessage').hide()
+  $('#editRoundModal').modal('hide')
+  $('.all-rounds').html('') // this hides all rounds
+  api.index()
+    .then(getRoundsSuccess)
+    .catch(getRoundsFailure)
 }
 
 const onUpdateRoundFailure = function (response) {

@@ -119,3 +119,7 @@ button {
 .rounds-list {
   color: yellow;
 }
+
+.editRoundButton, .deleteRoundButton {
+  background-color: black;
+}
