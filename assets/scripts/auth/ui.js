@@ -42,6 +42,9 @@ const signOutSuccess = function () {
   $('.signUpLink').show()
   $('#sign-up').hide()
   store.user = null
+  $('.all-rounds').empty()
+  $('#newRoundButton').hide()
+  $('#getRoundsButton').hide()
 }
 
 const signOutFailure = function () {
