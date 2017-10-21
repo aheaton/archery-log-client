@@ -16,13 +16,15 @@ const signUpFailure = function () { // this error also comes back from the ajax 
   $('#signUpFailMessage').show()
 }
 
-const signInSuccess = function (data) {
+const signInSuccess = function (data, event) {
   store.user = data.user // this puts a user property in the store object located in the store file; doing this on signInSucess because comes back from the response here
   $('#signUpInModal').modal('hide')
   $('.navbar').show()
   $('.title').show()
   $('#newRoundButton').show()
-  $('#getRoundsButton').show()
+  api.index()
+    .then(getRoundsSuccess)
+    .catch(getRoundsFailure)
 }
 
 const signInFailure = function () {

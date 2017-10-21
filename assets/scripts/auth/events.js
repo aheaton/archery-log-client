@@ -13,7 +13,7 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  api.signIn(data) // this is where the signIn function from the api file is actually being invoked and that is why the api file is required rather than the other way around -- need to require file where you are invoking the function
+  api.signIn(data, event) // this is where the signIn function from the api file is actually being invoked and that is why the api file is required rather than the other way around -- need to require file where you are invoking the function
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
@@ -22,7 +22,6 @@ const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
     .then(ui.signOutSuccess)
-    // .then(resetSignOut)
     .catch(ui.signOutFailure)
 }
 
@@ -54,7 +53,6 @@ const addHandlers = () => {
   })
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#getRoundsButton').on('click', getRounds)
   $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#newRoundButton').on('click', function () {
