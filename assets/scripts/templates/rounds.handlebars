@@ -1,15 +1,17 @@
 {{#each rounds as |round|}}
 
-  <ul class="rounds-list" style="list-style: none;" data-id="{{round.id}}">
-  <li><strong>Date:</strong> {{round.date}}</li>
-  <li><strong>Range Name:</strong> {{round.range_name}}</li>
-  <li><strong>Range Type:</strong> {{round.range_type}}</li>
-  <li><strong>Bow Class:</strong> {{round.bow_class}}</li>
-  <li><strong>Arrows/End:</strong> {{round.arrows_per_end}}</li>
-  <li><strong># of Ends:</strong> {{round.number_of_ends}}</li>
-  <li><strong>Total Score:</strong> {{round.total_score}}</li>
+  <div class="rounds-list" data-id="{{round.id}}">
+  <div><strong>Date:</strong> {{round.date}}</div>
+  <div><strong>Range Name:</strong> {{round.range_name}}</div>
+  <div><strong>Range Type:</strong> {{round.range_type}}</div>
+  <div><strong>Bow Class:</strong> {{round.bow_class}}</div>
+  <div><strong>Arrows/End:</strong> {{round.arrows_per_end}}</div>
+  <div><strong># of Ends:</strong> {{round.number_of_ends}}</div>
+  <div><strong>Total Score:</strong> {{round.total_score}}</div>
   <button class="editRoundButton" data-id="{{round.id}}">Edit</button>
   <button class="deleteRoundButton" data-id="{{round.id}}">Delete</button>
-  </ul>
+  <br>
+  <br>
+  </div>
 
 {{/each}}
