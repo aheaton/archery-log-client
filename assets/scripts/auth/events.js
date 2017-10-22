@@ -64,6 +64,9 @@ const addHandlers = () => {
   $('#changePasswordButton').on('click', function () {
     $('#changePassFailMessage').hide()
   })
+  $('#changePasswordButton').on('click', function () {
+    $('#changePassSuccessMessage').hide()
+  })
   $('.signUpLink').on('click', function () {
     $('#signUpFailMessage').hide()
     $('#sign-up').get(0).reset()
