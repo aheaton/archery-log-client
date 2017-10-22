@@ -45,7 +45,7 @@
         <p id="signUpSuccessMessage" class="success">Congrats, you are now registered!</p>
         <h5>Sign in</h5>
         <p id="signInFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
-        <input type="text" name="credentials[email]" placeholder="Email Address" required>
+        <input type="email" name="credentials[email]" placeholder="Email Address" required>
         <br>
         <br>
         <input type="password" name="credentials[password]" placeholder="Password" required>
@@ -58,7 +58,7 @@
       <form id="sign-up" class="inputFields">
 
         <p id="signUpFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
-        <input type="text" name="credentials[email]" placeholder="Email Address" required>
+        <input type="email" name="credentials[email]" placeholder="Email Address" required>
         <br>
         <br>
         <input type="password" name="credentials[password]" placeholder="Password" required>
@@ -108,7 +108,6 @@
 <h1 class="title">Archery Log</h1>
 <div id="signOutFailMessage" class="failure">Sorry, something went wrong. Please try again.</div>
 <div id="deleteRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</div>
-<div id="showRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</div>
 <div id="getRoundsFailMessage" class="failure">Sorry, we could not retrieve your archery log. Please try again later.</div>
 <br>
 <button type="button" id="newRoundButton" class="btn btn-primary">Log new round</button>
@@ -182,6 +181,7 @@
               <form id="edit-round" class="inputFields">
                 <div class="modal-body">
                   <p id="updateRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
+                  <p id="showRoundFailMessage" class="failure">We are currently having trouble retrieving your information.</p>
                   <input id="roundDate" type="date" name=round[date] placeholder="Date" required>
                   <br>
                   <br>

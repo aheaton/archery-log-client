@@ -58,6 +58,16 @@ const addHandlers = () => {
   $('#newRoundButton').on('click', function () {
     $('#addNewRoundModal').modal('show')
   })
+  $('#newRoundButton').on('click', function () {
+    $('#addNewRoundFailMessage').hide()
+  })
+  $('#changePasswordButton').on('click', function () {
+    $('#changePassFailMessage').hide()
+  })
+  $('.signUpLink').on('click', function () {
+    $('#signUpFailMessage').hide()
+    $('#sign-up').get(0).reset()
+  })
   $('.signUpLink').on('click', function () {
     $('#sign-up').toggle()
   })

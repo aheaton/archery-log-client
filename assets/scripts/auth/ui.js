@@ -51,6 +51,7 @@ const signOutSuccess = function () {
 
 const signOutFailure = function () {
   $('#signOutFailMessage').show()
+  setTimeout(() => { $('#signOutFailMessage').hide() }, 3000)
 }
 
 const changePasswordSuccess = function () {
@@ -81,6 +82,9 @@ const getRoundsSuccess = function (data) {
       .then(onShowRoundSuccess)
       .catch(onShowRoundFailure)
   })
+  $('.editRoundButton').on('click', function () {
+    $('#updateRoundFailMessage').hide()
+  })
   $('#edit-round').on('submit', function (event) { // this allows you to edit the information in the modal and submit it
     const data = getFormFields(this)
     console.log('this is the data I am sending to the update method', data)
@@ -105,6 +109,7 @@ const getRoundsSuccess = function (data) {
 const getRoundsFailure = function (response) {
   console.error(response)
   $('#getRoundsFailMessage').show()
+  setTimeout(() => { $('#getRoundsFailMessage').hide() }, 3000)
 }
 
 const onDeleteSuccess = function () {
@@ -115,6 +120,7 @@ const onDeleteSuccess = function () {
 const onDeleteFailure = function (response) {
   console.error(response)
   $('#deleteRoundFailMessage').show()
+  setTimeout(() => { $('#deleteRoundFailMessage').hide() }, 3000)
 }
 
 const onShowRoundSuccess = function (round) {
@@ -133,6 +139,7 @@ const onShowRoundSuccess = function (round) {
 const onShowRoundFailure = function (response) {
   console.error(response)
   $('#showRoundFailMessage').show()
+  setTimeout(() => { $('#showRoundFailMessage').hide() }, 3000)
 }
 
 const onUpdateRoundSuccess = function (event) {
