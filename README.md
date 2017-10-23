@@ -2,7 +2,7 @@
 
 <h3>About the App:</h3>
 <p>This application is a log you can use to track your progression as an archer. No more writing your progress down with paper and pencil or an Excel spreadsheet. This is an app you can access anywhere, anytime.</p>
-<p>Just sign up for the app with an email address and password, log in, and track your best rounds from the day with ease. Log info such as range name, range type, bow class, arrows per end, number of ends, and total score. After you log some rounds, you can always go back later and edit information or delete if you wish to clean up your log.</p>
+<p>Just sign up for the app with an email address and password, log in, and track your best rounds from the day with ease. You can log info such as range name, range type, bow class, arrows per end, number of ends, and total score. After you log some rounds, you can always go back later and edit information, or delete if you wish to clean up your log.</p>
 
 <h3>Link to the API Repo:</h3> <p>https://github.com/aheaton/archery-log-api</p>
 
@@ -35,7 +35,7 @@
 <p>As I came across difficult problems, I used many resources to become unstuck. First and foremost, I used other similar examples from class rather than trying to reinvent the wheel given the short development timeframe. Also, I used online forums such as Stack Overflow extensively. Lastly, communicating with other developers who have encountered similar issues was key in resolving issues quickly.</p>
 
 <h3>Future Fixes and Enhancements:</h3>
-<p>Specific to the frontend, I would like to enhance my list view so that the list items come back in chronological order and if a user edits one resource, not all resources need to refresh. In addition, I would like if to create category dropdowns so a user could view rounds by range type and bow class, for example.</p>
+<p>Specific to the frontend, I would like to enhance my list view so that the list items come back in chronological order and if a user edits one resource, not all resources need to refresh. In addition, I would like to create category dropdowns so a user can view rounds by range type and bow class, for example.</p>
 
 <h3>Wireframes:</h3>
 <p>https://imgur.com/a/K0xFP</p>
