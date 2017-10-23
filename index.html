@@ -45,7 +45,7 @@
         <p id="signUpSuccessMessage" class="success">Congrats, you are now registered!</p>
         <h5>Sign in</h5>
         <p id="signInFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
-        <input type="email" name="credentials[email]" placeholder="Email Address" required>
+        <input type="text" name="credentials[email]" placeholder="Email Address" required>
         <br>
         <br>
         <input type="password" name="credentials[password]" placeholder="Password" required>
@@ -58,7 +58,7 @@
       <form id="sign-up" class="inputFields">
 
         <p id="signUpFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
-        <input type="email" name="credentials[email]" placeholder="Email Address" required>
+        <input type="text" name="credentials[email]" placeholder="Email Address" required>
         <br>
         <br>
         <input type="password" name="credentials[password]" placeholder="Password" required>
@@ -73,7 +73,7 @@
   </div>
 </div>
 </div>
-<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="changePasswordModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -117,7 +117,7 @@
 </div>
 </div>
 
-<div class="modal fade" id="addNewRoundModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addNewRoundModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -151,13 +151,13 @@
             </select>
             <br>
             <br>
-            <input type="number" name=round[arrows_per_end] placeholder="Arrows Per End" required>
+            <input type="number" min="0" name=round[arrows_per_end] placeholder="Arrows Per End" required>
             <br>
             <br>
-            <input type="number" name=round[number_of_ends] placeholder="Number of Ends" required>
+            <input type="number" min="0" name=round[number_of_ends] placeholder="Number of Ends" required>
             <br>
             <br>
-            <input type="number" name=round[total_score] placeholder="Total Score" required>
+            <input type="number" min="0" name=round[total_score] placeholder="Total Score" required>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -168,7 +168,7 @@
       </div>
       </div>
 
-      <div class="modal fade" id="editRoundModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="editRoundModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -203,13 +203,13 @@
                   </select>
                   <br>
                   <br>
-                  <input id="roundArrowsPerEnd" type="number" name=round[arrows_per_end] placeholder="Arrows Per End" required>
+                  <input id="roundArrowsPerEnd" type="number" min="0" name=round[arrows_per_end] placeholder="Arrows Per End" required>
                   <br>
                   <br>
-                  <input id="roundNumberOfEnds" type="number" name=round[number_of_ends] placeholder="Number of Ends" required>
+                  <input id="roundNumberOfEnds" type="number" min="0" name=round[number_of_ends] placeholder="Number of Ends" required>
                   <br>
                   <br>
-                  <input id="roundTotalScore" type="number" name=round[total_score] placeholder="Total Score" required>
+                  <input id="roundTotalScore" type="number" min="0" name=round[total_score] placeholder="Total Score" required>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
