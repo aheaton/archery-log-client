@@ -65,7 +65,9 @@ const changePasswordFailure = function () {
   $('#changePassSuccessMessage').hide()
 }
 
-let round = ''
+let round = '' // id used for editing round, coming from Handlebars
+let deleteRoundID = '' // id used for deleting round, coming from Handlebars
+let deleteRound = '' // this is the round to delete including info about the round, not just id
 const getRoundsSuccess = function (data) {
   $('#getRoundsFailMessage').hide()
   console.log('Get Rounds Success!')
@@ -94,14 +96,16 @@ const getRoundsSuccess = function (data) {
       .then(onUpdateRoundSuccess)
       .catch(onUpdateRoundFailure)
   })
-  $('.deleteRoundButton').on('click', function (event) {
+  $('.deleteRoundButton').on('click', function () {
+    $('#deleteConfirmModal').modal('show')
+    deleteRoundID = $(this).data('id')
+    deleteRound = $(this)
+  })
+  $('#deleteConfirmButton').on('click', function (event) {
     event.preventDefault()
-    console.log('this is the round I want to delete', $(this).data('id'))
-    const round = $(this).data('id')
-    console.log('this is what a deleted round looks like', $(this).parent())
-    api.destroy(round)
+    api.destroy(deleteRoundID)
       .then(onDeleteSuccess)
-      .then($(this).parent().parent().hide()) // removes the round from the UI after deleting it successfully
+      .then($(deleteRound).parent().parent().hide()) // removes the round from the UI after deleting it successfully
       .catch(onDeleteFailure)
   })
 }
@@ -115,12 +119,12 @@ const getRoundsFailure = function (response) {
 const onDeleteSuccess = function () {
   console.log('Delete success!')
   $('#deleteRoundFailMessage').hide()
+  $('#deleteConfirmModal').modal('hide')
 }
 
 const onDeleteFailure = function (response) {
   console.error(response)
   $('#deleteRoundFailMessage').show()
-  setTimeout(() => { $('#deleteRoundFailMessage').hide() }, 3000)
 }
 
 const onShowRoundSuccess = function (round) {
