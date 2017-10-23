@@ -70,7 +70,6 @@ let deleteRoundID = '' // id used for deleting round, coming from Handlebars
 let deleteRound = '' // this is the round to delete including info about the round, not just id
 const getRoundsSuccess = function (data) {
   $('#getRoundsFailMessage').hide()
-  console.log('Get Rounds Success!')
   const showRoundsHtml = showRoundsTemplate({ rounds: data.rounds }) // this is putting the data object that contains all the rounds into a rounds object it can use when the method defined in HandleBars is invoked
   $('.all-rounds').html(showRoundsHtml)
   $('.editRoundButton').on('click', function () { // need to put this click handler here because the button needs to be loaded into the DOM before I can put a click handler on it (i.e. cannot put this event listener into memory on page load like the others)
@@ -78,7 +77,6 @@ const getRoundsSuccess = function (data) {
   })
   $('.editRoundButton').on('click', function (event) { // this shows the information in the edit modal of the round clicked
     event.preventDefault()
-    console.log('this is the round I want to edit', $(this).data('id')) // we use data id because it can be used by jQuery
     round = $(this).data('id')
     api.show(round)
       .then(onShowRoundSuccess)
@@ -89,8 +87,6 @@ const getRoundsSuccess = function (data) {
   })
   $('#edit-round').on('submit', function (event) { // this allows you to edit the information in the modal and submit it
     const data = getFormFields(this)
-    console.log('this is the data I am sending to the update method', data)
-    console.log('this is the round I am submitting for edit', round)
     event.preventDefault()
     api.update(round, data)
       .then(onUpdateRoundSuccess)
@@ -113,27 +109,22 @@ const getRoundsSuccess = function (data) {
 }
 
 const getRoundsFailure = function (response) {
-  console.error(response)
   $('#getRoundsFailMessage').show()
   setTimeout(() => { $('#getRoundsFailMessage').hide() }, 3000)
 }
 
 const onDeleteSuccess = function () {
-  console.log('Delete success!')
   $('#deleteRoundFailMessage').hide()
   $('#deleteConfirmModal').modal('hide')
   $(deleteRound).parent().parent().hide() // removes the round from the UI after deleting it successfully, round info comes here based on delete button clicked in Handlebars
 }
 
 const onDeleteFailure = function (response) {
-  console.error(response)
   $('#deleteRoundFailMessage').show()
 }
 
 const onShowRoundSuccess = function (round) {
-  console.log('this is the round data I want to show', round)
   $('#showRoundFailMessage').hide()
-  console.log('Show success!')
   $('#roundDate').val(round.round.date) // need round here twice because my round object is nested within another round object based on how I am passing it in
   $('#roundRangeName').val(round.round.range_name)
   $('#roundRangeType').val(round.round.range_type)
@@ -144,13 +135,11 @@ const onShowRoundSuccess = function (round) {
 }
 
 const onShowRoundFailure = function (response) {
-  console.error(response)
   $('#showRoundFailMessage').show()
   setTimeout(() => { $('#showRoundFailMessage').hide() }, 3000)
 }
 
 const onUpdateRoundSuccess = function (event) {
-  console.log('Edit success!')
   $('#updateRoundFailMessage').hide()
   $('#editRoundModal').modal('hide')
   $('.all-rounds').html('') // this hides all rounds
@@ -160,7 +149,6 @@ const onUpdateRoundSuccess = function (event) {
 }
 
 const onUpdateRoundFailure = function (response) {
-  console.error(response)
   $('#updateRoundFailMessage').show()
 }
 

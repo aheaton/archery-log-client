@@ -5,7 +5,6 @@ const authUI = require('../auth/ui.js')
 const api = require('../api.js')
 
 const addRoundSuccess = function (data, event) {
-  console.log('Round has been added!')
   store.round = data.round
   $('#addNewRoundModal').modal('hide')
   $('.all-rounds').html('') // this hides all rounds
@@ -15,7 +14,6 @@ const addRoundSuccess = function (data, event) {
 }
 
 const addRoundFailure = function (response) {
-  console.error(response)
   $('#addNewRoundFailMessage').show()
 }
 

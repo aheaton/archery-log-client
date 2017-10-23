@@ -5,8 +5,6 @@ const getFormFields = require('../../../lib/get-form-fields')
 const onAddRound = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('this is my add round data', data)
-  console.log('this is my event info for add round', event)
   api.create(data, event)
     .then(ui.addRoundSuccess)
     .catch(ui.addRoundFailure)
