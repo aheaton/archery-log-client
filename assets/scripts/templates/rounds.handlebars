@@ -1,15 +1,37 @@
+<div class="rounds-list" class="container">
+    <div class="row">
+        <div class="col-md-12">
+        </div>
+        <div id="rounds-table">
+            <table class="col-md-12 table-bordered table-striped table-condensed cf">
+        <thead class="cf">
+        <tr>
+          <th>Date</th>
+          <th>Range Name</th>
+          <th>Range Type</th>
+          <th>Bow Class</th>
+          <th>Arrows/End</th>
+          <th># of Ends</th>
+          <th>Total Score</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+
 {{#each rounds as |round|}}
-
-  <div class="rounds-list" data-id="{{round.id}}">
-  <div><strong>Date:</strong> {{round.date}}</div>
-  <div><strong>Range Name:</strong> {{round.range_name}}</div>
-  <div><strong>Range Type:</strong> {{round.range_type}}</div>
-  <div><strong>Bow Class:</strong> {{round.bow_class}}</div>
-  <div><strong>Arrows/End:</strong> {{round.arrows_per_end}}</div>
-  <div><strong># of Ends:</strong> {{round.number_of_ends}}</div>
-  <div><strong>Total Score:</strong> {{round.total_score}}</div>
-  <button class="editRoundButton" data-id="{{round.id}}">Edit</button>
-  <button class="deleteRoundButton" data-id="{{round.id}}">Delete</button>
-  </div>
-
+        <tr>
+          <td data-title="Date">{{round.date}}</td>
+          <td data-title="Range Name">{{round.range_name}}</td>
+          <td data-title="Range Type">{{round.range_type}}</td>
+          <td data-title="Bow Class">{{round.bow_class}}</td>
+          <td data-title="Arrows/End">{{round.arrows_per_end}}</td>
+          <td data-title="# of Ends">{{round.number_of_ends}}</td>
+          <td data-title="Total Score">{{round.total_score}}</td>
+          <td><button class="editRoundButton" data-id="{{round.id}}">Edit</button>
+          <button class="deleteRoundButton" data-id="{{round.id}}">Delete</button></td>
+        </tr>
 {{/each}}
+
+</tbody>
+</table>
+</div>

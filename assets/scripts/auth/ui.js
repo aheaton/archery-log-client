@@ -101,7 +101,7 @@ const getRoundsSuccess = function (data) {
     console.log('this is what a deleted round looks like', $(this).parent())
     api.destroy(round)
       .then(onDeleteSuccess)
-      .then($(this).parent().hide()) // removes the round from the UI after deleting it successfully
+      .then($(this).parent().parent().hide()) // removes the round from the UI after deleting it successfully
       .catch(onDeleteFailure)
   })
 }

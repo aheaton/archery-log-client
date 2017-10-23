@@ -120,16 +120,62 @@ button {
   color: yellow;
 }
 
-.all-rounds {
-  background-color: rgba(152,152,152,0.7);
-  border-radius: 25px;
-}
-
-.rounds-list {
-  padding-top: .5cm;
-  padding-bottom: .5cm;
-}
-
 .editRoundButton, .deleteRoundButton {
   background-color: black;
+  margin: 2px;
+}
+
+@media only screen and (max-width: 800px) {
+
+    /* Force table to not be like tables anymore */
+	#rounds-table table,
+	#rounds-table thead,
+	#rounds-table tbody,
+	#rounds-table th,
+	#rounds-table td,
+	#rounds-table tr {
+		display: block;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#rounds-table thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	#rounds-table tr { border: 1px solid #ccc; }
+
+	#rounds-table td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+		white-space: normal;
+		text-align:left;
+	}
+
+	#rounds-table td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+	}
+
+	#rounds-table td:before { content: attr(data-title); }
+}
+
+th {
+  background-color: rgba(88,88,88,1);
+}
+
+td {
+  background-color: rgba(160,160,160,.8);
 }
