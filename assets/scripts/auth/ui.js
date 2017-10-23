@@ -105,8 +105,10 @@ const getRoundsSuccess = function (data) {
     event.preventDefault()
     api.destroy(deleteRoundID)
       .then(onDeleteSuccess)
-      .then($(deleteRound).parent().parent().hide()) // removes the round from the UI after deleting it successfully
       .catch(onDeleteFailure)
+  })
+  $('.deleteRoundButton').on('click', function () {
+    $('#deleteRoundFailMessage').hide()
   })
 }
 
@@ -120,6 +122,7 @@ const onDeleteSuccess = function () {
   console.log('Delete success!')
   $('#deleteRoundFailMessage').hide()
   $('#deleteConfirmModal').modal('hide')
+  $(deleteRound).parent().parent().hide() // removes the round from the UI after deleting it successfully, round info comes here based on delete button clicked in Handlebars
 }
 
 const onDeleteFailure = function (response) {
