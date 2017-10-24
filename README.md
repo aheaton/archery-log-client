@@ -1,7 +1,7 @@
 <h1>Archery Log Full-Stack Project - Client</h1>
 
 <h3>About the App:</h3>
-<p>This application is a log you can use to track your progression as an archer. No more writing your progress down with paper and pencil or an Excel spreadsheet. This is an app you can access anywhere, anytime.</p>
+<p>This application is a log you can use to track your progression as an archer. No more writing your progress down with paper and pencil or an Excel spreadsheet. This is an app you can access anywhere, anytime...even on your mobile device!</p>
 <p>Just sign up for the app with an email address and password, log in, and track your best rounds from the day with ease. You can log info such as range name, range type, bow class, arrows per end, number of ends, and total score. After you log some rounds, you can always go back later and edit information, or delete if you wish to clean up your log.</p>
 
 <h3>Links:</h3>
