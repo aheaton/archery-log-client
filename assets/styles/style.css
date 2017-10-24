@@ -179,3 +179,10 @@ th {
 td {
   background-color: rgba(160,160,160,.8);
 }
+
+.noRoundsMessage {
+  color: yellow;
+  background-color: grey;
+  padding: 5px;
+  border-radius: 10px;
+}

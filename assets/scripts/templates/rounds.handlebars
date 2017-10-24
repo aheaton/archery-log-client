@@ -1,3 +1,4 @@
+{{#if rounds}}
 <div class="rounds-list" class="container">
     <div class="row">
         <div class="col-md-12">
@@ -31,6 +32,9 @@
           <button class="deleteRoundButton" data-id="{{round.id}}">Delete</button></td>
         </tr>
 {{/each}}
+{{else}}
+      <p class="noRoundsMessage">No rounds currently logged. Click "Log new round" button above to begin!</p>
+    {{/if}}
 
 </tbody>
 </table>

@@ -67,7 +67,6 @@ const changePasswordFailure = function () {
 
 let round = '' // id used for editing round, coming from Handlebars
 let deleteRoundID = '' // id used for deleting round, coming from Handlebars
-let deleteRound = '' // this is the round to delete including info about the round, not just id
 const getRoundsSuccess = function (data) {
   $('#getRoundsFailMessage').hide()
   const showRoundsHtml = showRoundsTemplate({ rounds: data.rounds }) // this is putting the data object that contains all the rounds into a rounds object it can use when the method defined in HandleBars is invoked
@@ -95,7 +94,6 @@ const getRoundsSuccess = function (data) {
   $('.deleteRoundButton').on('click', function () {
     $('#deleteConfirmModal').modal('show')
     deleteRoundID = $(this).data('id')
-    deleteRound = $(this)
   })
   $('#deleteConfirmButton').on('click', function (event) {
     event.preventDefault()
@@ -116,7 +114,9 @@ const getRoundsFailure = function (response) {
 const onDeleteSuccess = function () {
   $('#deleteRoundFailMessage').hide()
   $('#deleteConfirmModal').modal('hide')
-  $(deleteRound).parent().parent().hide() // removes the round from the UI after deleting it successfully, round info comes here based on delete button clicked in Handlebars
+  api.index()
+    .then(getRoundsSuccess)
+    .catch(getRoundsFailure)
 }
 
 const onDeleteFailure = function (response) {
