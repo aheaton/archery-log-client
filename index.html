@@ -129,12 +129,15 @@
         <form id="add-round" class="inputFields">
           <div class="modal-body">
             <p id="addNewRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
-            <input type="date" name=round[date] placeholder="Date: yyyy-mm-dd" required>
+            <p><strong>Date</strong></p>
+            <input type="date" name=round[date] placeholder="Use yyyy-mm-dd format" required>
             <br>
             <br>
+            <p><strong>Range Name</strong></p>
             <input type="text" name=round[range_name] placeholder="Range Name" required>
             <br>
             <br>
+            <p><strong>Range Type</strong></p>
             <select name=round[range_type] required>
               <option value="" selected disabled hidden>Select Range Type</option>
               <option value="Indoor">Indoor</option>
@@ -142,6 +145,7 @@
             </select>
             <br>
             <br>
+            <p><strong>Bow Class</strong></p>
             <select name=round[bow_class] required>
               <option value="" selected disabled hidden>Select Bow Class</option>
               <option value="Recurve">Recurve</option>
@@ -150,12 +154,15 @@
             </select>
             <br>
             <br>
+            <p><strong>Arrows Per End</strong></p>
             <input type="number" min="0" name=round[arrows_per_end] placeholder="Arrows Per End" required>
             <br>
             <br>
+            <p><strong>Number of Ends</strong></p>
             <input type="number" min="0" name=round[number_of_ends] placeholder="Number of Ends" required>
             <br>
             <br>
+            <p><strong>Total Score</strong></p>
             <input type="number" min="0" name=round[total_score] placeholder="Total Score" required>
             </div>
             <div class="modal-footer">
@@ -181,12 +188,15 @@
                 <div class="modal-body">
                   <p id="updateRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
                   <p id="showRoundFailMessage" class="failure">We are currently having trouble retrieving your information.</p>
-                  <input id="roundDate" type="date" name=round[date] placeholder="Date: yyyy-mm-dd" required>
+                  <p><strong>Date</strong></p>
+                  <input id="roundDate" type="date" name=round[date] placeholder="Use yyyy-mm-dd format" required>
                   <br>
                   <br>
+                  <p><strong>Range Name</strong></p>
                   <input id="roundRangeName" type="text" name=round[range_name] placeholder="Range Name" required>
                   <br>
                   <br>
+                  <p><strong>Range Type</strong></p>
                   <select id="roundRangeType" name=round[range_type] required>
                     <option value="" selected disabled hidden>Select Range Type</option>
                     <option value="Indoor">Indoor</option>
@@ -194,6 +204,7 @@
                   </select>
                   <br>
                   <br>
+                  <p><strong>Bow Class</strong></p>
                   <select id="roundBowClass" name=round[bow_class] required>
                     <option value="" selected disabled hidden>Select Bow Class</option>
                     <option value="Recurve">Recurve</option>
@@ -202,12 +213,15 @@
                   </select>
                   <br>
                   <br>
+                  <p><strong>Arrows Per End</strong></p>
                   <input id="roundArrowsPerEnd" type="number" min="0" name=round[arrows_per_end] placeholder="Arrows Per End" required>
                   <br>
                   <br>
+                  <p><strong>Number of Ends</strong></p>
                   <input id="roundNumberOfEnds" type="number" min="0" name=round[number_of_ends] placeholder="Number of Ends" required>
                   <br>
                   <br>
+                  <p><strong>Total Score</strong></p>
                   <input id="roundTotalScore" type="number" min="0" name=round[total_score] placeholder="Total Score" required>
                   </div>
                   <div class="modal-footer">
