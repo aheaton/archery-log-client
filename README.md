@@ -5,9 +5,9 @@
 <p>Just sign up for the app with an email address and password, log in, and track your best rounds from the day with ease. You can log info such as range name, range type, bow class, arrows per end, number of ends, and total score. After you log some rounds, you can always go back later and edit information, or delete if you wish to clean up your log.</p>
 
 <h3>Links:</h3>
-<p>Deployed client site: https://aheaton.github.io/archery-log-client/</p>
-<p>API repo on GitHub: https://github.com/aheaton/archery-log-api</p>
-<p>Deployed API site: https://archery-log-api.herokuapp.com/</p>
+<p>Archery Log Site: https://aheaton.github.io/archery-log-client/</p>
+<p>API Repo on GitHub: https://github.com/aheaton/archery-log-api</p>
+<p>Deployed API: https://archery-log-api.herokuapp.com/</p>
 
 <h3>Technologies Used:</h3>
 <ul>
