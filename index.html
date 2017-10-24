@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Archery Log</title>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+<body>
+<header>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li id="changePasswordButton"><a href="#">Change Password</a></li>
+        <li id="sign-out"><a href="#">Sign Out</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+</header>
+
+<div id="signUpInModal"  data-backdrop="static" data-keyboard="false" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalLabel">Archery Log</h3>
+      </div>
+      <div class="modal-body">
+      <form id="sign-in" class="inputFields">
+        <p id="signUpSuccessMessage" class="success">Congrats, you are now registered!</p>
+        <h5>Sign in</h5>
+        <p id="signInFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
+        <input type="text" name="credentials[email]" placeholder="Email Address" required>
+        <br>
+        <br>
+        <input type="password" name="credentials[password]" placeholder="Password" required>
+        <br>
+        <br>
+        <button type="submit" name="submit" class="btn btn-primary">Sign In</button>
+      </form>
+      <br>
+      <h5 class="signUpLink"><a href="#">Don't have an account yet? Sign up!</a></h5>
+      <form id="sign-up" class="inputFields">
+
+        <p id="signUpFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
+        <input type="text" name="credentials[email]" placeholder="Email Address" required>
+        <br>
+        <br>
+        <input type="password" name="credentials[password]" placeholder="Password" required>
+        <br>
+        <br>
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
+        <br>
+        <br>
+        <button type="submit" name="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+      </div>
+  </div>
+</div>
+</div>
+<div class="modal fade" id="changePasswordModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title" id="modalLabel">Change Password</h3>
+        <h5>You can change your password by using the form below.</h5>
+      </div>
+      <form id="change-password" class="inputFields">
+      <div class="modal-body">
+        <p id="changePassSuccessMessage" class="success">Changed password successfully. Please use the Close button to get back to your log.</p>
+        <p id="changePassFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
+        <input type="password" name="passwords[old]" placeholder="Old Password" required>
+        <br>
+        <br>
+        <input type="password" name="passwords[new]" placeholder="New Password" required>
+        <br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+      </div>
+      </form>
+  </div>
+</div>
+</div>
+
+<div class="container">
+<main>
+<div id="pageContent" class="col-xs-8 col-xs-offset-2">
+<h1 class="title">Archery Log</h1>
+<div id="signOutFailMessage" class="failure">Sorry, something went wrong. Please try again.</div>
+<div id="getRoundsFailMessage" class="failure">Sorry, we could not retrieve your archery log. Please try again later.</div>
+<br>
+<button type="button" id="newRoundButton" class="btn btn-primary">Log new round</button>
+<br>
+<br>
+<div class="all-rounds">
+</div>
+</div>
+
+<div class="modal fade" id="addNewRoundModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modal-title" id="modalLabel">Log New Round</h3>
+        <h5>Add your best round from your session today.</h5>
+      </div>
+        <form id="add-round" class="inputFields">
+          <div class="modal-body">
+            <p id="addNewRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
+            <p><strong>Date</strong></p>
+            <input type="date" name=round[date] placeholder="Use yyyy-mm-dd format" pattern="\d{4}-\d{1,2}-\d{1,2}" required>
+            <br>
+            <br>
+            <p><strong>Range Name</strong></p>
+            <input type="text" name=round[range_name] placeholder="Range Name" required>
+            <br>
+            <br>
+            <p><strong>Range Type</strong></p>
+            <select name=round[range_type] required>
+              <option value="" selected disabled hidden>Select Range Type</option>
+              <option value="Indoor">Indoor</option>
+              <option value="Outdoor">Outdoor</option>
+            </select>
+            <br>
+            <br>
+            <p><strong>Bow Class</strong></p>
+            <select name=round[bow_class] required>
+              <option value="" selected disabled hidden>Select Bow Class</option>
+              <option value="Recurve">Recurve</option>
+              <option value="Compound">Compound</option>
+              <option value="Traditional">Traditional</option>
+            </select>
+            <br>
+            <br>
+            <p><strong>Arrows Per End</strong></p>
+            <input type="number" min="0" name=round[arrows_per_end] placeholder="Arrows Per End" required>
+            <br>
+            <br>
+            <p><strong>Number of Ends</strong></p>
+            <input type="number" min="0" name=round[number_of_ends] placeholder="Number of Ends" required>
+            <br>
+            <br>
+            <p><strong>Total Score</strong></p>
+            <input type="number" min="0" name=round[total_score] placeholder="Total Score" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button type="submit" name="submit" class="btn btn-primary">Add Round</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+
+      <div class="modal fade" id="editRoundModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h3 class="modal-title" id="modalLabel">Edit Round</h3>
+              <h5>Make changes to your round information below.</h5>
+            </div>
+              <form id="edit-round" class="inputFields">
+                <div class="modal-body">
+                  <p id="updateRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
+                  <p id="showRoundFailMessage" class="failure">We are currently having trouble retrieving your information.</p>
+                  <p><strong>Date</strong></p>
+                  <input id="roundDate" type="date" name=round[date] placeholder="Use yyyy-mm-dd format" pattern="\d{4}-\d{1,2}-\d{1,2}" required>
+                  <br>
+                  <br>
+                  <p><strong>Range Name</strong></p>
+                  <input id="roundRangeName" type="text" name=round[range_name] placeholder="Range Name" required>
+                  <br>
+                  <br>
+                  <p><strong>Range Type</strong></p>
+                  <select id="roundRangeType" name=round[range_type] required>
+                    <option value="" selected disabled hidden>Select Range Type</option>
+                    <option value="Indoor">Indoor</option>
+                    <option value="Outdoor">Outdoor</option>
+                  </select>
+                  <br>
+                  <br>
+                  <p><strong>Bow Class</strong></p>
+                  <select id="roundBowClass" name=round[bow_class] required>
+                    <option value="" selected disabled hidden>Select Bow Class</option>
+                    <option value="Recurve">Recurve</option>
+                    <option value="Compound">Compound</option>
+                    <option value="Traditional">Traditional</option>
+                  </select>
+                  <br>
+                  <br>
+                  <p><strong>Arrows Per End</strong></p>
+                  <input id="roundArrowsPerEnd" type="number" min="0" name=round[arrows_per_end] placeholder="Arrows Per End" required>
+                  <br>
+                  <br>
+                  <p><strong>Number of Ends</strong></p>
+                  <input id="roundNumberOfEnds" type="number" min="0" name=round[number_of_ends] placeholder="Number of Ends" required>
+                  <br>
+                  <br>
+                  <p><strong>Total Score</strong></p>
+                  <input id="roundTotalScore" type="number" min="0" name=round[total_score] placeholder="Total Score" required>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Edit Round</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            </div>
+
+            <div class="modal fade" id="deleteConfirmModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title" id="modalLabel">Delete Confirmation</h3>
+                  </div>
+                  <form id="delete-confirm" class="inputFields">
+                  <div class="modal-body">
+                    <p id="deleteRoundFailMessage" class="failure">Sorry, something went wrong. Please try again.</p>
+                    <p> Are you sure you want to delete this round?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button id="deleteConfirmButton" type="submit" name="submit" class="btn btn-primary">Yes</button>
+                  </div>
+                  </form>
+              </div>
+            </div>
+            </div>
+</main>
+</div>
+</body>
+</html>
